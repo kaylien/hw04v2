@@ -1,0 +1,45 @@
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /home/kaynonroot/cs4450-hw02/hw01/personal;
+        index index.html index.htm index.php;
+
+        server_name hw01.kaylienphan.com;
+}
+
+
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /home/kaynonroot/cs4450-hw02/hw02;
+        index index.html index.htm index.php;
+
+        server_name hw02.kaylienphan.com;
+
+        location / {
+        autoindex on;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /home/kaynonroot/cs4450-hw02/hw02/default;
+        index index.html index.htm index.php;
+
+        server_name kaylienphan.com www.kaylienphan.com;
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        server_name microblog.kaylienphan.com;
+
+
+        location / {
+        proxy_pass http://127.0.0.1:4000;
+        }
+}
